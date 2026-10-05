@@ -40,4 +40,11 @@ debug_level = 7
 EOF
 fi
 
+if [ -z "${SKIP_PIN_CREATE:-}" ] && [ ! -f "${PIN_FILE}" ]; then
+    echo -n "Enter HSM Slot PIN: "
+    read pin
+    echo ${pin} > "${PIN_FILE}"
+    chmod 600 "${PIN_FILE}"
+fi
+
 #EOF

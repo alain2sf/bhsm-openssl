@@ -5,11 +5,13 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 SKIP_CONF_CREATE=1   # Don't re-generate the OpenSSL Config file
+SKIP_PIN_CREATE=1    # Don't re-create the PIN file
 
 # Source the config file reliably using the absolute path
 source "$SCRIPT_DIR/config.sh"
 
 rm -f "${OPENSSL_CONF}"
+rm -f "${PIN_FILE}"
 
 rm -f "${MLKEM_PK_PEM}"
 rm -f "${SENDER_SECRET_FILE}" "${SENDER_CIPHERTEXT_FILE}"
