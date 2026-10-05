@@ -16,10 +16,11 @@ OPENSSL_CONF="${OPENSSL_CONF}" \
 OPENSSL_MODULES="${OPENSSL_MODULES}" \
 PKCS11_MODULE_PATH="${PKCS11_MODULE_PATH}" \
 BOUNCY_HSM_CFG_STRING="${BOUNCY_HSM_CFG_STRING}" \
-        openssl pkeyutl -decap -provider pkcs11prov -provider default \
-                        -inkey "pkcs11:token="${SLOT_TOKEN}";object="${KEYPAIR_OBJ}";type=private;pin-source="${PIN_FILE}"" \
-                        -in "${SENDER_CIPHERTEXT_FILE}" \
-                        -secret "${RECEIVER_SECRET_FILE}"
+  openssl pkeyutl \
+     -decap -provider pkcs11prov -provider default \
+     -inkey "pkcs11:token="${SLOT_TOKEN}";object="${KEYPAIR_OBJ}";type=private;pin-source="${PIN_FILE}"" \
+     -in "${SENDER_CIPHERTEXT_FILE}" \
+     -secret "${RECEIVER_SECRET_FILE}"
 
 echo ""
 echo "Shared secret: $(wc -c < "${RECEIVER_SECRET_FILE}") bytes"   # should be 32

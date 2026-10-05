@@ -40,6 +40,7 @@ debug_level = 7
 EOF
 fi
 
+# Create the slot PIN file once and only if not skipped (0-Cleanup.sh/0-Check-PKCS11.sh)
 if [ -z "${SKIP_PIN_CREATE:-}" ] && [ ! -f "${PIN_FILE}" ]; then
     echo -n "Enter HSM Slot PIN: "
     read pin
