@@ -1,0 +1,15 @@
+#   openssl_conf = openssl_init
+#   [openssl_init]
+#   providers = provider_sect
+#   [provider_sect]
+#   default = default_sect
+#   pkcs11 = pkcs11_sect
+#   [default_sect]
+#   activate = 1
+[pkcs11_sect]
+identity = pkcs11prov
+pkcs11_module = /path/to/BouncyHsm-Pkcs11Lib-Platform-lib
+force_login = 1
+#   pin = 0000
+activate = 1
+debug_level = 7
