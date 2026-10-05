@@ -6,6 +6,7 @@
 # Environment and secrets
 # -----------------------------------------------------------------------------
 DemoSlotToken1.pin
+openssl-pkcs11.cnf
 .env
 .env.local
 .env.development
