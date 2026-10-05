@@ -10,12 +10,12 @@ source "$SCRIPT_DIR/config.sh"
 # token (label) = slot = ${SLOT_TOKEN}
 # object = keypair = ${KEYPAIR_OBJ}
 
-OPENSSL_CONF=${OPENSSL_CONF} \
-OPENSSL_MODULES=${OPENSSL_MODULES} \
-PKCS11_MODULE_PATH=${PKCS11_MODULE_PATH} \
-BOUNCY_HSM_CFG_STRING=${BOUNCY_HSM_CFG_STRING} \
+OPENSSL_CONF="${OPENSSL_CONF}" \
+OPENSSL_MODULES="${OPENSSL_MODULES}" \
+PKCS11_MODULE_PATH="${PKCS11_MODULE_PATH}" \
+BOUNCY_HSM_CFG_STRING="${BOUNCY_HSM_CFG_STRING}" \
         openssl genpkey -provider pkcs11prov -provider default -algorithm ML-KEM-768 \
-                        -pkeyopt pkcs11_uri:"pkcs11:token=${SLOT_TOKEN};object=${KEYPAIR_OBJ};pin-source=${PIN_FILE}" \
-                        -out "pkcs11:token=${SLOT_TOKEN};object=${KEYPAIR_OBJ};pin-source=${PIN_FILE}"
+                        -pkeyopt pkcs11_uri:"pkcs11:token="${SLOT_TOKEN}";object="${KEYPAIR_OBJ}";pin-source="${PIN_FILE}"" \
+                        -out "pkcs11:token="${SLOT_TOKEN}";object="${KEYPAIR_OBJ}";pin-source="${PIN_FILE}""
 
 #EOF
