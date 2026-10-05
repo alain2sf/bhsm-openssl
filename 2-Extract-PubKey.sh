@@ -17,7 +17,7 @@ OPENSSL_MODULES="${OPENSSL_MODULES}" \
 PKCS11_MODULE_PATH="${PKCS11_MODULE_PATH}" \
 BOUNCY_HSM_CFG_STRING="${BOUNCY_HSM_CFG_STRING}" \
       openssl pkey -provider pkcs11prov -provider default \
-                   -in "pkcs11:token="${SLOT_TOKEN}";object="${KEYPAIR_OBJ}";type=public"" \
+                   -in "pkcs11:token="${SLOT_TOKEN}";object="${KEYPAIR_OBJ}";type=public" \
                    -pubin -pubout \
                    -out "${MLKEM_PK_PEM}"
 
